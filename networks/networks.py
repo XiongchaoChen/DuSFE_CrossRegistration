@@ -14,7 +14,7 @@ class DuRegister_DuSE(nn.Module):
     def __init__(self, n_channels_c1=1, n_channels_c2=1, nchannels_extract=32):
         super(DuRegister_DuSE, self).__init__()
 
-        # (1) The first downsampling and feature extraction module; [2, 72,72,32] to [32, 9,9,4]
+        # (1) The first downsampling and feature extraction module; 
         self.conv_in_c1 = nn.Conv3d(n_channels_c1, nchannels_extract, kernel_size=3, padding=1, bias=True)
         self.bn_in_c1 = nn.BatchNorm3d(nchannels_extract)
         self.RDB1_c1 = RDB(nchannels_extract, nDenselayer=4, growthRate=32, norm='BN')
@@ -48,38 +48,38 @@ class DuRegister_DuSE(nn.Module):
     def forward(self, inp_c1, inp_c2):
         # (1) Downsampling
         c1_in_bn = F.relu(self.bn_in_c1(self.conv_in_c1(inp_c1)))
-        c2_in_bn = F.relu(self.bn_in_c2(self.conv_in_c2(inp_c2)))  # [32, 72,72,32]
+        c2_in_bn = F.relu(self.bn_in_c2(self.conv_in_c2(inp_c2)))  
         # Layer 1
         c1_RDB1 = self.RDB1_c1(c1_in_bn)
         c2_RDB1 = self.RDB1_c2(c2_in_bn)
-        c1_DuSE1, c2_DuSE1 = self.DuSE1(c1_RDB1, c2_RDB1)  # [32, 72,72,32]
+        c1_DuSE1, c2_DuSE1 = self.DuSE1(c1_RDB1, c2_RDB1)  
         c1_pool1 = F.avg_pool3d(c1_DuSE1, 2)
-        c2_pool1 = F.avg_pool3d(c2_DuSE1, 2)  # [32, 36,36,16]
+        c2_pool1 = F.avg_pool3d(c2_DuSE1, 2)  
         # Layer 2
         c1_RDB2 = self.RDB2_c1(c1_pool1)
         c2_RDB2 = self.RDB2_c2(c2_pool1)
-        c1_DuSE2, c2_DuSE2 = self.DuSE2(c1_RDB2, c2_RDB2)  # [32, 36,36,16]
+        c1_DuSE2, c2_DuSE2 = self.DuSE2(c1_RDB2, c2_RDB2)  
         c1_pool2 = F.avg_pool3d(c1_DuSE2, 2)
-        c2_pool2 = F.avg_pool3d(c2_DuSE2, 2)  # [32, 18,18,8]
+        c2_pool2 = F.avg_pool3d(c2_DuSE2, 2)  
         # Layer 3
         c1_RDB3 = self.RDB3_c1(c1_pool2)
         c2_RDB3 = self.RDB3_c2(c2_pool2)
-        c1_DuSE3, c2_DuSE3 = self.DuSE3(c1_RDB3, c2_RDB3)  # [32, 18,18,8]
-        c1_pool3 = F.avg_pool3d(c1_DuSE3, 2)  # [32, 9,9,4]
-        c2_pool3 = F.avg_pool3d(c2_DuSE3, 2)  # [32, 9,9,4]
+        c1_DuSE3, c2_DuSE3 = self.DuSE3(c1_RDB3, c2_RDB3)  
+        c1_pool3 = F.avg_pool3d(c1_DuSE3, 2)  
+        c2_pool3 = F.avg_pool3d(c2_DuSE3, 2)  
 
         # (2) Residual Dense Conection
-        comb_inp = torch.cat((c1_pool3, c2_pool3), 1)  # [64, 9,9,4]
-        comb_RDB = self.RDB_comb(comb_inp)  # [64, 9,9,4]
-        comb_conv1 = F.relu(self.bn1_comb(self.conv1_comb(comb_RDB)))  # [32, 9,9,4]
-        comb_conv2 = self.conv2_comb(comb_conv1)  # [16, 9,9,4]
+        comb_inp = torch.cat((c1_pool3, c2_pool3), 1)  
+        comb_RDB = self.RDB_comb(comb_inp)  
+        comb_conv1 = F.relu(self.bn1_comb(self.conv1_comb(comb_RDB)))  
+        comb_conv2 = self.conv2_comb(comb_conv1)  
 
         # (3) Fully-Connected Layers
-        comb_flatten = torch.flatten(comb_conv2, start_dim=1, end_dim=- 1)  # [B, 5184]
-        comb_fc1 = self.fc1(comb_flatten)  # 1024
-        comb_fc2 = self.fc2(comb_fc1)  # 128
-        comb_fc3 = self.fc3(comb_fc2)  # 16
-        comb_fc4 = self.fc4(comb_fc3)  # 6
+        comb_flatten = torch.flatten(comb_conv2, start_dim=1, end_dim=- 1)  
+        comb_fc1 = self.fc1(comb_flatten)  
+        comb_fc2 = self.fc2(comb_fc1)  
+        comb_fc3 = self.fc3(comb_fc2)  
+        comb_fc4 = self.fc4(comb_fc3)  
 
         out = comb_fc4
         return out
