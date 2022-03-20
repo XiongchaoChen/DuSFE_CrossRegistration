@@ -3,7 +3,7 @@ python test.py \
 --experiment_name 'test_register_4' \
 --model_type 'model_reg' \
 --dataset 'CardiacSPECT_Reg' \
---data_root '../../Data/Processed_2022x01x21_1_400Train_demo/' \
+--data_root '../../Data/Dataset_filename/' \
 --net_G 'DuRegister_DuSE' \
 --net_filter 32 \
 --batch_size 4 \
