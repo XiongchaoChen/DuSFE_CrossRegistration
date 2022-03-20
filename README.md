@@ -4,7 +4,7 @@ Xiongchao Chen, ...
 
 [[Paper]()]
 
-This repository contains the PyTorch implementation of Dual-Branch Squeeze-Fusion-Excitation Module for cross-modality SPECT-CT registration (DuSFE).
+This repository contains the PyTorch implementation of Dual-Branch Squeeze-Fusion-Excitation (DuSFE) Module for cross-modality SPECT-CT registration.
 
 ### Citation
 If you use this code for your research or project, please cite:
