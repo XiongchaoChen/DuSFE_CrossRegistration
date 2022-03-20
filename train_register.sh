@@ -2,7 +2,7 @@ python train.py \
 --experiment_name 'train_register' \
 --model_type 'model_reg' \
 --dataset 'CardiacSPECT_Reg' \
---data_root '../../Data/Processed_2022x01x21_1_400Train_demo/' \
+--data_root '../../Data/Dataset_filename/' \
 --net_G 'DuRegister_DuSE' \
 --net_filter 32 \
 --lr 5e-5 \
@@ -18,4 +18,4 @@ python train.py \
 --patch_size_valid 80 80 40 \
 --eval_epochs 5 \
 --snapshot_epochs 5 \
---gpu_ids 1
+--gpu_ids 0
