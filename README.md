@@ -25,7 +25,45 @@ If you use this code for your research or project, please cite:
  
  Our code has been tested with Python 3.6.10, Pytorch 1.2.0, CUDA: 10.0.130 on Ubuntu 18.04.6.
 
-    
+ ### Dataset Setup
+    .
+    Data
+    ├── train                # contain training files
+    |   ├── data1.h5
+    |       ├── Amap_Trans.mat  
+    |       ├── Amap_CT.mat
+    |       ├── SPECT_NC.mat
+    |       ├── SPECT.mat
+    |       ├── SC3.mat
+    |       ├── GD.mat
+    |       ├── BMI.mat
+    |       ├── STATE.mat
+    |   └── ...  
+    |
+    ├── valid                # contain validation files
+    |   ├── data1.h5
+    |       ├── AC.mat  
+    |       ├── NC.mat
+    |       ├── SC.mat
+    |       ├── SC2.mat
+    |       ├── SC3.mat
+    |       ├── GD.mat
+    |       ├── BMI.mat
+    |       ├── STATE.mat
+    |   └── ... 
+    |
+    └── test                 # contain testing files
+    |   ├── data1.h5
+    |       ├── AC.mat  
+    |       ├── NC.mat
+    |       ├── SC.mat
+    |       ├── SC2.mat
+    |       ├── SC3.mat
+    |       ├── GD.mat
+    |       ├── BMI.mat
+    |       ├── STATE.mat
+    |   └── ... 
+    └── ...  
 
 
 
