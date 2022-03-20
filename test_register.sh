@@ -13,7 +13,7 @@ python test.py \
 --patch_size_test 80 80 40 \
 --n_patch_valid 1 \
 --patch_size_valid 80 80 40 \
---gpu_ids 1
+--gpu_ids 0
 
 
 
