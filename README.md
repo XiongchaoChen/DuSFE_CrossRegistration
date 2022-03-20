@@ -71,8 +71,36 @@ Sample training/testing scripts are provided at the root folder as `train_regist
 python train.py --experiment_name 'train_register' --model_type 'model_reg' --dataset 'CardiacSPECT_Reg' --data_root '../../Data/Dataset_filename/' --net_G 'DuRegister_DuSE' --net_filter 32 --lr 5e-5 --step_size 1 --gamma 0.99 --n_epochs 400 --batch_size 4 --n_patch_train 1 --patch_size_train 80 80 40 --n_patch_test 1 --patch_size_test 80 80 40 --n_patch_valid 1 --patch_size_valid 80 80 40 --eval_epochs 5 --snapshot_epochs 5 --gpu_ids 0
 ```
 
+where \
+`--experiment_name` experiment name for the code, and save all the training results in this under this "experiment_name" folder. \
+`--model_type`: model type used (default convolutioanl neural networks -- "model_reg"). \
+`--dataset`: dataset type. \
+`--data_root`: path of the dataset. \
+`--net_G`: neural network model used (default: 'DuRegister_DuSE'). \
+`--net_filter`: num of filters in the dense connected layers of DuSFE (default: 32). \
+`--lr`: learning rate. \
+`--step_size`: num of epoch for learning rate decay .\
+`--gamma`: learning decay rate. \
+`--n_epochs`: num of epoches of training. \
+`--batch_size`: training batch size. \
+`--n_patch_train`: number of training patches extracted from each image volume. \
+`--patch_size_train`: training patch size. \
+`--n_patch_test`: number of testing patches extracted from each image volume. \
+`--patch_size_test`: testing patch size. \
+`--n_patch_valid`: number of validationpatches extracted from each image volume. \
+`--patch_size_valid`: validation patch size. \
+`--test_epochs`: number of epoches for periodic validation. \
+`--save_epochs`: number of epoches for saving trained model. \
+`--gpu_ids`: GPU configuration.
 
-
+- Test the model 
+```bash
+python test.py -resume './outputs/train_register/checkpoints/model_4.pt' --experiment_name 'test_register_4' --model_type 'model_reg' --dataset 'CardiacSPECT_Reg' --data_root '../../Data/Dataset_filename/' --net_G 'DuRegister_DuSE' --net_filter 32 --batch_size 4 --n_patch_train 1 --patch_size_train 80 80 40 --n_patch_test 1 --patch_size_test 80 80 40 --n_patch_valid 1 --patch_size_valid 80 80 40 --gpu_ids 0
+```
+where \
+`resume`: path of the model to be tested. \
+`resume_epoch`: training epoch of the model to be tested. \
+`--experiment_name`: experiment name for the code, and save all the testing results in this under this "experiment_name" folder. 
 
 
 ### Contact 
