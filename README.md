@@ -3,7 +3,6 @@
 Xiongchao Chen, Bo Zhou, Huidong Xie, Xueqi Guo, Jiazhen Zhang, Albert J. Sinusas, John A. Onofrey, and Chi Liu
 
 ![image](IMAGE/DuSFE.png)
-xfun::embed_file("IMAGE/DuSFE.pdf")
 
 [[Paper]()]
 
