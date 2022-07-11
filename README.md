@@ -103,6 +103,15 @@ where \
 `resume_epoch`: training epoch of the model to be tested. \
 `--experiment_name`: experiment name for the code, and save all the testing results in this under this "experiment_name" folder. 
 
+### Data Avaliability
+
+We originally used a private dataset at Yale PET Center. If you would like to access the data, please contact chi.liu@yale.edu
+Pleae contact the corresponding author 
+The original dataset in this study is available from the corresponding author upon reasonable request and approval of Yale University. 
+```
+Chi Liu: chi.liu@yale.edu
+```
+
 
 ### Contact 
 If you have any question, please file an issue or contact the author:
