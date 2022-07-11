@@ -104,11 +104,11 @@ where \
 `--experiment_name`: experiment name for the code, and save all the testing results in this under this "experiment_name" folder. 
 
 ### Data Avaliability
-The original dataset in this study is available from the corresponding author by chi.liu@yale.edu upon reasonable request and approval of Yale University. 
+The original dataset in this study is available from the corresponding author (chi.liu@yale.edu) upon reasonable request and approval of Yale University. 
 
 
 ### Contact 
-If you have any question, please file an issue or contact the author:
+If you have any question, please file an issue or directly contact the author:
 ```
 Xiongchao Chen: xiongchao.chen@yale.edu, cxiongchao9587@gmail.com
 ```
