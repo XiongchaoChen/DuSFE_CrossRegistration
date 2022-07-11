@@ -2,9 +2,9 @@
 
 Xiongchao Chen, Bo Zhou, Huidong Xie, Xueqi Guo, Jiazhen Zhang, Albert J. Sinusas, John A. Onofrey, and Chi Liu
 
-![image](IMAGE/DuSFE.png)
-
 [[Paper](https://arxiv.org/abs/2206.05278)]
+
+![image](IMAGE/DuSFE.png)
 
 This repository contains the PyTorch implementation of Dual-Branch Squeeze-Fusion-Excitation (DuSFE) Module for cross-modality SPECT-CT registration.
 
