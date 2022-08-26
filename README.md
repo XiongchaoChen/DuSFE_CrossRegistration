@@ -58,10 +58,10 @@ If you use this code for your research or project, please cite: \
     └── ...  
 
 where \
-`Amap_Trans`: rotated CT-based attenuation map with a size of H x W x H. \
-`Amap_CT`: aligned CT-based attenuation maps with a size of H x W x H. \
-`SPECT_NC`: reconstructed cardiac SPECT image in a photopeak window with a size of H x W x H. \
-`SPECT_SC`: reconstructed cardiac SPECT image in a scatter window with a size of H x W x H (optional). \
+`Amap_Trans`: rotated CT-based attenuation map with a size of H x W x D. \
+`Amap_CT`: aligned CT-based attenuation maps with a size of H x W x D. \
+`SPECT_NC`: reconstructed cardiac SPECT image in a photopeak window with a size of H x W x D. \
+`SPECT_SC`: reconstructed cardiac SPECT image in a scatter window with a size of H x W x D (optional). \
 `Index_Trans`: rigid transformation index with a size of 6 x 1 (3 translational index, 3 rotational index). 
 
 ### To Run the Code
