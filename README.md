@@ -9,9 +9,16 @@ Xiongchao Chen, Bo Zhou, Huidong Xie, Xueqi Guo, Jiazhen Zhang, Albert J. Sinusa
 This repository contains the PyTorch implementation of Dual-Branch Squeeze-Fusion-Excitation (DuSFE) Module for cross-modality SPECT-CT registration.
 
 ### Citation
-If you use this code for your research or project, please cite: \
-\
-"Chen X, Zhou B, Xie H, Guo X, Zhang J, Sinusas AJ, Onofrey JA, Liu C. Dual-Branch Squeeze-Fusion-Excitation Module for Cross-Modality Registration of Cardiac SPECT and CT. InInternational Conference on Medical Image Computing and Computer-Assisted Intervention 2022 (pp. 46-55). Springer, Cham."
+If you use this code for your research or project, please cite:
+
+    @inproceedings{chen2022dual,
+      title={Dual-Branch Squeeze-Fusion-Excitation Module for Cross-Modality Registration of Cardiac SPECT and CT},
+      author={Chen, Xiongchao and Zhou, Bo and Xie, Huidong and Guo, Xueqi and Zhang, Jiazhen and Sinusas, Albert J and Onofrey, John A and Liu, Chi},
+      booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+      pages={46--55},
+      year={2022},
+      organization={Springer}
+    }
 
 
  ### Environment and Dependencies
