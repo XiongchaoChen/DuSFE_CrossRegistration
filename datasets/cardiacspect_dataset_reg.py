@@ -8,7 +8,6 @@ import torchvision.utils as utils
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 from utils.data_patch_util import *
-from utils.function import *
 
 def nmae(sr_image, gt_image):
     diff_abs = np.absolute(sr_image - gt_image)
