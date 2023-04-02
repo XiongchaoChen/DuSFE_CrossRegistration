@@ -9,18 +9,7 @@ import math
 from six.moves import xrange
 import pdb
 
-"""
-  getRandomPatchIndexs -- indices for random patches
-  getOrderedPatchIndexes  -- indices for a regularly sampled grid
-  getPatchesFromIndexes -- getPatchesFromIndexes
-  getRandomPatches -- (RandomPatchIndexes -> PatchesFromIndexes)
-  getOrderedPatches -- (OrderedPatchIndexes -> PatchesFromIndexes)
-  imagePatchRecon -- Recon Image given patches and indices
 
-  getbatch3d -- get batch of 3d patches
-  getbatch   -- get batch of images -- if 3D call getbatch3d
-
-"""
 # ----------------------------------------------------------------------------
 # ---------------------------- Saving Function ------------------------------
 #
@@ -532,73 +521,6 @@ def crop_image(image, offset=None):
 
   return image[crop_slice]
 
-# -----------------------------------------------------------------------------------
-#
-# Main Function
-#
-# -----------------------------------------------------------------------------------
-if __name__ == '__main__':
-  parser = argparse.ArgumentParser(description='Load an image for patch sampling.')
-  parser.add_argument('input', nargs=1, help='NIfTI image input file.')
-  parser.add_argument('output', nargs=1, help='NIfTI image patch output file.')
-  parser.add_argument('-n','--num_samples', type=int, help='number of image patch samples to extract', default=0)
-  parser.add_argument('-r','--random', help='Perform random patch sampling from the image', action='store_true')
-  parser.add_argument('-p','--patch_size', type=int, nargs='+', help='Set the patch size in voxels', default=[1])
-  parser.add_argument('-s','--stride', type=int, nargs='+', help='Set the patch stride in voxels', default=[1])
-  parser.add_argument('--sigma', type=float, help='Reconstruction weight mask smoothing parameter, default=0.0', default=0.0)
-  parser.add_argument('--recon', help='File name for to create a reconstructed image from the sampled patches')
-  args = parser.parse_args()
 
-
-  if not os.path.isfile(args.input[0]):
-    raise ValueError('Failed to find the file: ' + f)
-  print('Loading file: %s' % args.input[0])
-  nifti_image = nib.load(args.input[0])
-  image = nifti_image.get_data()
-  print('Loaded image with data of size: '+str(image.shape))
-
-  # Get the data dimensionality
-  dims = len(image.shape)
-
-  patch_size = []
-  for i in range(0,dims):
-    patch_size += [1]
-  # Set the patch size from the input 
-  for i in range(0,min(dims,len(args.patch_size))):
-    patch_size[i] = min(image.shape[i],args.patch_size[i])
-
-  print('Patch size = %s' %(patch_size,))
-  print('Random sampling = %r' % args.random)
-
-  if args.random:
-    [patches, indexes] = getRandomPatches(image, patch_size, num_patches=args.num_samples, padding='SAME')
-  else:
-    stride = []
-    for i in range(0,dims):
-      stride += [1]
-    for i in range(0,min(dims,len(args.stride))):
-      stride[i] = max(1,args.stride[i])
-    print('Stride: '+str(stride))
-
-    [patches, indexes] = getOrderedPatches(image, patch_size, stride=stride, padding='VALID', num_patches=args.num_samples)
-
-  print('Patch sampling complete.')
-  print('Got %d patches from the image...' % patches.shape[0])
-
-
-  out_patches = np.zeros(patch_size + [patches.shape[0]], dtype=image.dtype)
-  for i in range(0,patches.shape[0]):
-    out_patches[..., i] = patches[i, ...]
-
-  print('Saving the patch image out: %s' % args.output[0])
-  output = nib.Nifti1Image(out_patches, nifti_image.affine)
-  nib.save(output, args.output[0])
-
-
-  if args.recon:
-    print('Saving reconstructed image out: %s' % args.recon)
-    r_image = imagePatchRecon(image.shape, patches, indexes, sigma=args.sigma)
-    output = nib.Nifti1Image(r_image, nifti_image.affine, header=nifti_image.header)
-    nib.save(output, args.recon)
 
 
