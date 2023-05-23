@@ -1,4 +1,4 @@
-# Dual-Branch Squeeze-Fusion-Excitation Module for Cross-Modality Registration of Cardiac SPECT and CT (Medical Image Analysis 2023 & MICCAI 2022)
+# DuSFE: Dual-Channel Squeeze-Fusion-Excitation Module for Cross-Modality Registration of Cardiac SPECT and CT (MedIA 2023 & MICCAI 2022)
 
 Xiongchao Chen, Bo Zhou, Huidong Xie, Xueqi Guo, Jiazhen Zhang, Albert J. Sinusas, John A. Onofrey, and Chi Liu
 
