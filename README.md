@@ -81,24 +81,24 @@ python train.py --experiment_name 'train_register' --model_type 'model_reg' --da
 
 where \
 `--experiment_name` experiment name for the code, and save all the training results in this under this "experiment_name" folder. \
-`--model_type`: model type used (default convolutioanl neural networks -- "model_reg"). \
+`--model_type`: model type used (default convolutional neural networks -- "model_reg"). \
 `--dataset`: dataset type. \
-`--data_root`: path of the dataset. \
+`--data_root`: the path of the dataset. \
 `--net_G`: neural network model used (default: 'DuRegister_DuSE'). \
-`--net_filter`: num of filters in the dense connected layers of DuSFE (default: 32). \
+`--net_filter`: num of filters in the densely connected layers of DuSFE (default: 32). \
 `--lr`: learning rate. \
 `--step_size`: num of epoch for learning rate decay .\
 `--gamma`: learning decay rate. \
-`--n_epochs`: num of epoches of training. \
+`--n_epochs`: num of epochs of training. \
 `--batch_size`: training batch size. \
 `--n_patch_train`: number of training patches extracted from each image volume. \
 `--patch_size_train`: training patch size. \
 `--n_patch_test`: number of testing patches extracted from each image volume. \
 `--patch_size_test`: testing patch size. \
-`--n_patch_valid`: number of validationpatches extracted from each image volume. \
+`--n_patch_valid`: number of validation patches extracted from each image volume. \
 `--patch_size_valid`: validation patch size. \
-`--test_epochs`: number of epoches for periodic validation. \
-`--save_epochs`: number of epoches for saving trained model. \
+`--test_epochs`: number of epochs for periodic validation. \
+`--save_epochs`: number of epochs for saving trained model. \
 `--gpu_ids`: GPU configuration.
 
 - Test the model 
@@ -110,12 +110,12 @@ where \
 `--resume_epoch`: training epoch of the model to be tested. \
 `--experiment_name`: experiment name for the code, and save all the testing results in this under this "experiment_name" folder. 
 
-### Data Avaliability
+### Data Availability
 The original dataset in this study is available from the corresponding author (chi.liu@yale.edu) upon reasonable request and approval of Yale University. 
 
 
 ### Contact 
-If you have any question, please file an issue or directly contact the author:
+If you have any questions, please file an issue or directly contact the author:
 ```
 Xiongchao Chen: xiongchao.chen@yale.edu, cxiongchao9587@gmail.com
 ```
