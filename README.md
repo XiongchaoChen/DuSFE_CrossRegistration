@@ -1,4 +1,6 @@
-# DuSFE: Dual-Channel Squeeze-Fusion-Excitation co-attention for cross-modality registration of cardiac SPECT and CT  (Medical Image Analysis 2023 & MICCAI Travel Award 2022)
+# DuSFE: Dual-Channel Squeeze-Fusion-Excitation co-attention for cross-modality registration of cardiac SPECT and CT  
+
+**_(Medical Image Analysis 2023 & MICCAI Travel Award 2022)_**
 
 Xiongchao Chen, Bo Zhou, Huidong Xie, Xueqi Guo, Jiazhen Zhang, James S. Duncan, Edward J. Miller, Albert J. Sinusas, John A. Onofrey, and Chi Liu
 
@@ -106,7 +108,7 @@ where \
 python test.py -resume './outputs/train_register/checkpoints/model_199.pt' --experiment_name 'test_register_199' --model_type 'model_reg' --dataset 'CardiacSPECT_Reg' --data_root '../../Data/Dataset_filename/' --net_G 'DuRegister_DuSE' --net_filter 32 --batch_size 4 --n_patch_train 1 --patch_size_train 80 80 40 --n_patch_test 1 --patch_size_test 80 80 40 --n_patch_valid 1 --patch_size_valid 80 80 40 --gpu_ids 0
 ```
 where \
-`--resume`: path of the model to be tested. \
+`--resume`: the path of the model to be tested. \
 `--resume_epoch`: training epoch of the model to be tested. \
 `--experiment_name`: experiment name for the code, and save all the testing results in this under this "experiment_name" folder. 
 
