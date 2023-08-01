@@ -72,7 +72,7 @@ where \
 `Index_Trans`: rigid transformation index with a size of 6 x 1 (3 translational index, 3 rotational index). 
 
 ### To Run the Code
-Sample training/testing scripts are provided at the root folder as `train_register.sh` and `train_register.sh`.
+Sample training/testing scripts are provided at the root folder as `train_register.sh` and `test_register.sh`.
 
 - Train the model 
 ```bash
