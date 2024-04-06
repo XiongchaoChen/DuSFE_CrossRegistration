@@ -1,6 +1,6 @@
 # DuSFE: Dual-Channel Squeeze-Fusion-Excitation co-attention for cross-modality registration of cardiac SPECT and CT  
 
-**_(Medical Image Analysis 2023 & MICCAI Travel Award 2022)_**
+**_Medical Image Analysis 2023 & MICCAI Travel Award 2022_**
 
 Xiongchao Chen, Bo Zhou, Huidong Xie, Xueqi Guo, Jiazhen Zhang, James S. Duncan, Edward J. Miller, Albert J. Sinusas, John A. Onofrey, and Chi Liu
 
